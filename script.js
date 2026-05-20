@@ -86,16 +86,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Custom glowing cursor effect tracking mouse
-    const orbs = document.querySelectorAll('.glow-orb');
-    
-    document.addEventListener('mousemove', (e) => {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        
-        // Subtle shift of background orbs based on mouse position
-        orbs[0].style.transform = `translate(${x * 30}px, ${y * 30}px)`;
-        orbs[1].style.transform = `translate(${x * -40}px, ${y * -40}px)`;
-        orbs[2].style.transform = `translate(${x * 20}px, ${y * -20}px)`;
-    });
+    // (Custom mouse tracking removed to keep background smooth and fixed)
 });

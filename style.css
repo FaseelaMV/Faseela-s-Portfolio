@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap');
 
 :root {
-    --bg-dark: #070913;
+    --bg-dark: #0b0f19;
     --card-bg: rgba(255, 255, 255, 0.03);
     --card-border: rgba(255, 255, 255, 0.07);
     --text-main: #f8fafc;
@@ -59,34 +59,23 @@ body {
 .glow-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(140px);
-    opacity: 0.25;
+    filter: blur(120px);
+    opacity: 0.4;
     mix-blend-mode: screen;
 }
 
 .orb-1 {
-    top: -10%;
-    right: -10%;
-    width: 50vw;
-    height: 50vw;
-    background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(99, 102, 241, 0.2) 40%, transparent 70%);
 }
 
-.orb-2 {
-    bottom: -10%;
-    left: -10%;
-    width: 60vw;
-    height: 60vw;
-    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-}
-
+.orb-2,
 .orb-3 {
-    top: 40%;
-    left: 25%;
-    width: 35vw;
-    height: 35vw;
-    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-    opacity: 0.15;
+    display: none;
 }
 
 /* ==========================================================================
@@ -222,7 +211,11 @@ section {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-family: var(--font-heading);
     font-weight: 800;
     line-height: 1.2;
@@ -554,16 +547,30 @@ footer {
 }
 
 /* Animations (Reveal Classes) */
-.reveal-text, .reveal-fade, .reveal-slide, .reveal-scale {
+.reveal-text,
+.reveal-fade,
+.reveal-slide,
+.reveal-scale {
     opacity: 0;
     visibility: hidden;
     transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
 }
 
-.reveal-text { transform: translateY(30px); }
-.reveal-fade { transition-duration: 1.2s; }
-.reveal-slide { transform: translateY(50px); }
-.reveal-scale { transform: scale(0.9); }
+.reveal-text {
+    transform: translateY(30px);
+}
+
+.reveal-fade {
+    transition-duration: 1.2s;
+}
+
+.reveal-slide {
+    transform: translateY(50px);
+}
+
+.reveal-scale {
+    transform: scale(0.9);
+}
 
 .active {
     opacity: 1;
@@ -572,11 +579,25 @@ footer {
 }
 
 /* Add delays for hero elements */
-.hero .reveal-text:nth-child(1) { transition-delay: 0.1s; }
-.hero .reveal-text:nth-child(2) { transition-delay: 0.2s; }
-.hero .reveal-text:nth-child(3) { transition-delay: 0.3s; }
-.hero .reveal-text:nth-child(4) { transition-delay: 0.4s; }
-.hero .reveal-fade { transition-delay: 0.6s; }
+.hero .reveal-text:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.hero .reveal-text:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.hero .reveal-text:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.hero .reveal-text:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.hero .reveal-fade {
+    transition-delay: 0.6s;
+}
 
 /* ==========================================================================
    5. RESPONSIVE DESIGN (MOBILE REFINEMENTS)
@@ -611,7 +632,7 @@ footer {
         flex-direction: column;
         gap: 0.5rem;
     }
-    
+
     .contact-links {
         flex-direction: column;
     }
@@ -638,5 +659,137 @@ footer {
 
     .nav-links.active {
         left: 0;
+    }
+
+    /* --- Modern Hero Section Styles --- */
+    .hero-section {
+        position: relative;
+        background-color: #0b0f19;
+        /* Deep, high-end navy background */
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding: 80px 24px;
+    }
+
+    /* Glowing ambient background circle */
+    .hero-glow-orb {
+        position: absolute;
+        top: 20%;
+        right: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, rgba(59, 130, 246, 0) 70%);
+        filter: blur(60px);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .hero-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    /* Subtle badge tracker */
+    .hero-badge {
+        display: inline-block;
+        padding: 6px 16px;
+        background: rgba(124, 58, 237, 0.1);
+        border: 1px solid rgba(124, 58, 237, 0.2);
+        color: #a78bfa;
+        font-size: 0.85rem;
+        font-weight: 500;
+        border-radius: 100px;
+        margin-bottom: 24px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Bold typography & beautiful color gradient */
+    .hero-title {
+        color: #ffffff;
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .text-gradient {
+        background: linear-gradient(135deg, #a78bfa 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+        color: #94a3b8;
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .hero-description {
+        color: #64748b;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 36px;
+    }
+
+    /* Interactive CTA Buttons */
+    .hero-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+        color: #ffffff;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: #e2e8f0;
+        border: 1px solid #334155;
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: #64748b;
+        transform: translateY(-2px);
+    }
+
+    /* Responsive tweaking for mobile viewports */
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+        }
     }
 }
