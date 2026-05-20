@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Trigger initial hero animations
     setTimeout(() => {
-        document.querySelectorAll('.hero .reveal-text, .hero .reveal-fade').forEach(el => {
+        document.querySelectorAll('.hero-section .reveal-slide, .hero-section .reveal-fade').forEach(el => {
             el.classList.add('active');
         });
     }, 100);
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.reveal-slide, .reveal-scale').forEach(el => {
+    document.querySelectorAll('.reveal-slide, .reveal-scale, .reveal-fade').forEach(el => {
         revealObserver.observe(el);
     });
 
